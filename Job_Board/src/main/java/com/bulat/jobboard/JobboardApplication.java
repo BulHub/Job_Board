@@ -1,7 +1,6 @@
 package com.bulat.jobboard;
 
 import com.bulat.jobboard.config.SenderConfig;
-import liquibase.pro.packaged.J;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
