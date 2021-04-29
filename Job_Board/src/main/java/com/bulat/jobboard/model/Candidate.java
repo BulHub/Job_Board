@@ -20,7 +20,7 @@ import java.util.List;
 @AllArgsConstructor
 @Builder
 @Entity
-@Table(name = "candidates")
+@Table(name = "vacancy_candidate")
 public class Candidate extends BaseEntity implements GettersForCommonFieldsThatAreSearched {
 
     /** The name of the candidate */

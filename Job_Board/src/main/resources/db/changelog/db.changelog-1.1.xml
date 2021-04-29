@@ -28,7 +28,7 @@
     </changeSet>
 
     <changeSet id="1.0.7" author="bulat.bilalov">
-        <createTable tableName="candidates">
+        <createTable tableName="vacancy_candidate">
             <column name="id" type="BIGINT" autoIncrement="true">
                 <constraints primaryKey="true" nullable="false"/>
             </column>
