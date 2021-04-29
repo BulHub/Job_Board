@@ -1,6 +1,5 @@
 package com.bulat.jobboard;
 
-import com.bulat.jobboard.config.SenderConfig;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;

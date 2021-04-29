@@ -2,7 +2,6 @@ package com.bulat.jobboard.controller;
 
 import com.bulat.jobboard.dto.CaptchaResponseDto;
 import com.bulat.jobboard.model.User;
-import com.bulat.jobboard.service.EmailService;
 import com.bulat.jobboard.service.UserService;
 import com.bulat.jobboard.utils.Attributes;
 import com.bulat.jobboard.utils.UserValidator;
