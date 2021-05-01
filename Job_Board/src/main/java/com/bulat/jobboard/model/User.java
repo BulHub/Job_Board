@@ -44,13 +44,6 @@ public class User extends BaseEntity{
             inverseJoinColumns = {@JoinColumn(name = "role_id", referencedColumnName = "id")})
     private List<Role> roles;
 
-    /** Feedback left to the site */
-    @ManyToMany(fetch = FetchType.LAZY)
-    @JoinTable(name = "user_feedbacks",
-            joinColumns = {@JoinColumn(name = "user_id", referencedColumnName = "id")},
-            inverseJoinColumns = {@JoinColumn(name = "feedback_id", referencedColumnName = "id")})
-    private List<Feedback> feedbacks;
-
     /**
      * Constructor for testing spring security
      * @param email The mail that the user specified during registration

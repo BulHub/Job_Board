@@ -4,7 +4,6 @@ import com.bulat.jobboard.dto.CaptchaResponseDto;
 import com.bulat.jobboard.model.User;
 import com.bulat.jobboard.service.UserService;
 import com.bulat.jobboard.utils.Attributes;
-import com.bulat.jobboard.utils.UserValidator;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
@@ -29,20 +28,16 @@ import java.util.Objects;
 public class SignUpController {
     private final static String CAPTCHA_URL = "https://www.google.com/recaptcha/api/siteverify?secret=%s&response=%s";
 
-    private final UserValidator userValidator;
     private final RestTemplate restTemplate;
     private final UserService userService;
-    private final EmailService emailService;
 
     @Value("${recaptcha.secret}")
     private String secret;
 
     @Autowired
-    public SignUpController(UserValidator userValidator, RestTemplate restTemplate, UserService userService, EmailService emailService) {
-        this.userValidator = userValidator;
+    public SignUpController(RestTemplate restTemplate, UserService userService) {
         this.restTemplate = restTemplate;
         this.userService = userService;
-        this.emailService = emailService;
     }
 
     /** Method for getting registration page */
@@ -61,12 +56,10 @@ public class SignUpController {
     @PostMapping
     public String signUp(User user, BindingResult result, ModelMap model,
                          @RequestParam("g-recaptcha-response") String captchaResponse){
-        userValidator.validate(user, result);
         StringBuilder error = errorChecking(captchaResponse, result);
         if (error.length() == 0){
             Attributes.addSuccessAttributes(model, "A confirmation letter will come to your mail soon!");
             userService.signUp(user);
-            emailService.sendConfirmation(user);
         }else{
             Attributes.addErrorAttributes(model, String.valueOf(error));
         }

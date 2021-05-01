@@ -80,11 +80,4 @@ public class Candidate extends BaseEntity implements GettersForCommonFieldsThatA
     /** Link to the unique identifier of the registered user */
     @Column(name = "user_id")
     private Long userId;
-
-    /** Feedback left candidates to the site */
-    @ManyToMany(fetch = FetchType.EAGER)
-    @JoinTable(name = "candidate_company",
-            joinColumns = {@JoinColumn(name = "candidate_id", referencedColumnName = "id")},
-            inverseJoinColumns = {@JoinColumn(name = "feedback_for_candidate_id", referencedColumnName = "id")})
-    private List<FeedbackForCandidate> feedbacks;
 }

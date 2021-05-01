@@ -28,18 +28,15 @@ public class MainController {
     private final CityService cityService;
     private final SkillService skillService;
     private final CandidateService candidateService;
-    private final CommentService commentService;
 
 
     @Autowired
     public MainController(CompanyService companyService, CityService cityService,
-                          SkillService skillService, CandidateService candidateService,
-                          CommentService commentService) {
+                          SkillService skillService, CandidateService candidateService) {
         this.companyService = companyService;
         this.cityService = cityService;
         this.skillService = skillService;
         this.candidateService = candidateService;
-        this.commentService = commentService;
     }
 
     /**
